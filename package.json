@@ -1,0 +1,22 @@
+{
+  "name": "training-monorepo",
+  "version": "1.0.0",
+  "description": "Monorepo for backend (.NET) and clientapp (Angular)",
+  "scripts": {
+    "start:backend": "cd backend && dotnet run",
+    "start:clientapp": "cd clientapp && npm run start:proxy",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:clientapp\"",
+    "install:clientapp": "cd clientapp && npm install",
+    "build:clientapp": "cd clientapp && npm run build",
+    "build:backend": "cd backend && dotnet build",
+    "build": "npm run build:backend && npm run build:clientapp",
+    "test:clientapp": "cd clientapp && npm run test",
+    "test:backend": "cd backend && dotnet test",
+    "test": "npm run test:backend && npm run test:clientapp",
+    "deploy": "node deploy.js"
+  },
+  "private": true,
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

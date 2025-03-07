@@ -1,0 +1,83 @@
+<h1>Mock Interview Trainer</h1>
+<div class="language-selector">
+  <div class="language-group">
+    <label for="sourceLang">Source Language:</label>
+    <select
+      id="sourceLang"
+      [(ngModel)]="sourceLang"
+      (change)="onLanguageChange()"
+    >
+      <option *ngFor="let lang of languages" [value]="lang">{{ lang }}</option>
+    </select>
+  </div>
+  <div class="language-group">
+    <label for="targetLang">Target Language:</label>
+    <select
+      id="targetLang"
+      [(ngModel)]="targetLang"
+      (change)="onLanguageChange()"
+    >
+      <option *ngFor="let lang of languages" [value]="lang">{{ lang }}</option>
+    </select>
+  </div>
+</div>
+<div class="action-container">
+  <button class="get-question-btn" (click)="getQuestion()">
+    Get Interview Question
+  </button>
+</div>
+<div *ngIf="problem" class="problem-container">
+  <p class="instruction">
+    Convert this {{ problem!.sourceLanguage }} code to
+    {{ problem!.targetLanguage }}:
+  </p>
+  <app-code-editor
+    [readOnly]="true"
+    [language]="
+      problem!.sourceLanguage === 'TypeScript' ? 'typescript' : 'csharp'
+    "
+    [ngModel]="problem!.sourceCode"
+    class="problem-code-editor"
+  ></app-code-editor>
+  <p class="instruction">Answer in {{ problem!.targetLanguage }}:</p>
+  <app-code-editor
+    [(ngModel)]="userCode"
+    [language]="
+      problem!.targetLanguage === 'TypeScript' ? 'typescript' : 'csharp'
+    "
+    class="user-code-editor"
+  ></app-code-editor>
+
+  <div class="actions-row">
+    <button (click)="submitAnswer()" class="submit-btn">Submit Answer</button>
+    <button (click)="getHint()" class="hint-btn">Get Hint</button>
+    <button (click)="getAnswer()" class="answer-btn">Get Answer</button>
+  </div>
+
+  <p
+    *ngIf="feedback"
+    class="feedback"
+    [class.correct-answer]="feedback.includes('Correct')"
+    [class.incorrect-answer]="feedback.includes('Incorrect')"
+  >
+    {{ feedback }}
+  </p>
+
+  <div *ngIf="showHint" class="hint-container">
+    <h4>Hint:</h4>
+    <p class="hint-text">{{ hint }}</p>
+  </div>
+
+  <div *ngIf="showSolution" class="solution-container">
+    <h4>Solution Explanation:</h4>
+    <p class="solution-explanation">{{ solutionExplanation }}</p>
+  </div>
+
+  <div
+    *ngIf="showExplanation && problem.explanation"
+    class="explanation-container"
+  >
+    <h4>Why This Question Matters:</h4>
+    <p class="explanation-text">{{ problem.explanation }}</p>
+  </div>
+</div>

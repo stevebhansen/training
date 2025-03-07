@@ -1,0 +1,273 @@
+:host {
+  display: block;
+  font-family: "Roboto", "Segoe UI", sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: #333;
+}
+
+h1 {
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #3498db;
+}
+
+.language-selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.language-group {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+select {
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  font-size: 1rem;
+  width: 100%;
+}
+
+.problem-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+pre {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 4px;
+  overflow: auto;
+  font-family: "Fira Code", "Consolas", monospace;
+  border-left: 4px solid #3498db;
+  margin-bottom: 1.5rem;
+}
+
+.instruction {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-family: "Fira Code", "Consolas", monospace;
+  margin-bottom: 1.5rem;
+  resize: vertical;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+.feedback {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+  border-left: 4px solid #3498db;
+  transition: all 0.3s ease;
+}
+
+.correct-answer {
+  background-color: #e8f5e9;
+  border-left: 4px solid #2ecc71;
+  color: #2e7d32;
+}
+
+.incorrect-answer {
+  background-color: #ffebee;
+  border-left: 4px solid #e74c3c;
+  color: #c62828;
+}
+
+.problem-code {
+  background-color: #f8f9fa;
+  font-family: "Fira Code", "Consolas", monospace;
+  border-left: 4px solid #3498db;
+  resize: none;
+  cursor: default;
+}
+
+.problem-code:focus {
+  outline: none;
+  border-color: #e0e0e0;
+  box-shadow: none;
+}
+
+.problem-code-focus {
+  outline: none;
+  border-color: #e0e0e0;
+  box-shadow: none;
+}
+
+.problem-code-editor,
+.user-code-editor {
+  margin-bottom: 0.75rem;
+  height: 250px;
+}
+
+.user-code-editor {
+  margin-bottom: 1rem;
+}
+
+.problem-code-editor::ng-deep .cm-editor {
+  background-color: #f8f9fa;
+  border-left: 4px solid #3498db;
+}
+
+.user-code-editor::ng-deep .cm-editor {
+  background-color: #ffffff;
+  border-left: 4px solid #2ecc71;
+}
+
+.action-container {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.get-question-btn {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+}
+
+button[type="submit"],
+button:not(.get-question-btn) {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 1rem;
+  }
+
+  .language-selector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.actions-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.submit-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.hint-btn {
+  background-color: #f39c12;
+  color: white;
+}
+
+.hint-container {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #fff9e6;
+  border-left: 4px solid #f39c12;
+  border-radius: 4px;
+}
+
+.hint-text {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.explanation-container {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-left: 4px solid #2c3e50;
+  border-radius: 4px;
+}
+
+.explanation-text {
+  margin: 0;
+  line-height: 1.6;
+}
+
+h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.answer-btn {
+  background-color: #9b59b6;
+  color: white;
+}
+
+.solution-container {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #f4f0ff;
+  border-left: 4px solid #9b59b6;
+  border-radius: 4px;
+}
+
+.solution-explanation {
+  margin: 0;
+  margin-top: 0.75rem;
+  line-height: 1.6;
+}
